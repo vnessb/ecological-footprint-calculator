@@ -91,3 +91,11 @@ function assessFootprint(totalFootprint) {
 
     return `${assessment} footprint.<br><br>${feedback}`;
 }
+// Function to calculate ecological footprint (this function can call assessFootprint)
+function calculateFootprint() {
+    // Your existing code for calculating totalFootprint...
+    const feedback = assessFootprint(totalFootprint);
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `Your ecological footprint is approximately ${totalFootprint} kg CO₂ per year.<br><br>${feedback}`;
+    resultDiv.style.display = "block"; // Show result when calculation is done
+}
