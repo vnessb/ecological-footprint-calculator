@@ -1,0 +1,57 @@
+/* styles.css */
+
+/* General body and layout styles */
+body {
+    background-color: #b2febf; /* sage green background */
+    color: #06290c;            /* Dark text color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Title styling */
+h1 {
+    color: #000501;            /* black for the title */
+    text-align: center;
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+/* Styling for form labels */
+label {
+    font-size: 18px;
+    margin: 10px 0;
+    display: block;
+    color: #33a66d;
+}
+
+/* Styling for input fields */
+input[type="number"], 
+input[type="radio"], 
+select {
+    padding: 8px;
+    font-size: 16px;
+    margin: 8px 0;
+    width: 100%;
+    box-sizing: border-box;  /* To include padding in width calculation */
+}
+
+/* Remove the "Next" buttons */
+button {
+    display: none;   /* Hide any buttons (including "Next") */
+}
+
+/* Form container styling */
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom radio button and checkbox styling */
+input[type="radio"] {
+    margin-right: 8px;
+}
