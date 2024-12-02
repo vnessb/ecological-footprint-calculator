@@ -54,15 +54,26 @@ function calculateFootprint() {
         totalFootprint += waterTemp.value === "yes" ? 200 : 0;
     }
 
+    // Call the assessFootprint function to get feedback
+    const feedback = assessFootprint(totalFootprint);
+
+    // Show the result and feedback
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `Your ecological footprint is approximately ${totalFootprint} kg CO₂ per year.<br><br>${feedback}`;
+    resultDiv.style.display = "block"; // Show result when calculation is done
+
+    }
+
     // Show the result
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `Your ecological footprint is approximately ${totalFootprint} kg CO₂ per year.`;
     resultDiv.style.display = "block"; // Show result when calculation is done
 }
-
+// Function to assess the ecological footprint and provide feedback
 function assessFootprint(totalFootprint) {
     let assessment, feedback;
 
+    // Provide feedback based on the footprint value
     if (totalFootprint > 5000) {
         assessment = "High";
         feedback = "Your ecological footprint is high, indicating a significant impact on the environment. Here are some suggestions to reduce it:<br>" +
