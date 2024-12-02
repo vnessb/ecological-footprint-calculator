@@ -103,15 +103,19 @@
             </div>
 
             <!-- Submit Button -->
-            <button type="button" onclick="calculateFootprint()">Calculate Footprint</button>
+            <button type="button" id="submitButton">Calculate Footprint</button>
 
             <div id="result"></div>
         </form>
     </div>
 
     <script>
+        // Event listener for button to trigger calculation
+        document.getElementById("submitButton").addEventListener("click", calculateFootprint);
+
         function calculateFootprint() {
-            let totalFootprint = 0;
+            let totalFootprint = 0
+;
 
             // Energy Use
             const appliances = document.getElementById('appliances').value;
