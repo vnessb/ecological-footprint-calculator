@@ -102,10 +102,8 @@
                 <input type="radio" id="warmNo" name="waterTemp" value="no"> No
             </div>
 
-            <!-- Submit Button for Calculation -->
-            <div class="question">
-                <button type="button" onclick="calculateFootprint()">Calculate Your Ecological Footprint</button>
-            </div>
+            <!-- Submit Button -->
+            <button type="button" onclick="calculateFootprint()">Calculate Footprint</button>
 
             <div id="result"></div>
         </form>
@@ -168,7 +166,8 @@
                     "- Reduce the number of plugged-in appliances or switch to renewable energy if possible.<br>" +
                     "- Shorten shower times and try using cold water occasionally to reduce water usage.";
             } else if (totalFootprint >= 2500 && totalFootprint <= 5000) {
-                assessment = "Average";
+                assessment =
+ "Average";
                 feedback = "Your ecological footprint is average, meaning you're doing some things well but could still improve. Consider making a few adjustments to lower your impact.";
             } else {
                 assessment = "Low";
