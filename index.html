@@ -4,69 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecological Footprint Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f0f8f0; /* light sage background */
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            max-width: 600px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #2e8b57; /* dark sage color for the title */
-        }
-        .question {
-            margin: 20px 0;
-            display: none; /* Hide all questions initially */
-        }
-        .question.active {
-            display: block; /* Show active question */
-        }
-        .question label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 18px; /* Larger label font size for clarity */
-        }
-        input[type="radio"], input[type="select"] {
-            width: 20px; /* Larger radio buttons */
-            height: 20px;
-            margin-right: 10px; /* Space between the radio button and text */
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #2e8b57; /* matching button color */
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #3b9e6e; /* Slightly darker button color on hover */
-        }
-        #result {
-            margin-top: 20px;
-            font-weight: bold;
-            font-size: 18px;
-            color: #2e8b57;
-            display: none; /* Hide result until the form is completed */
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Calculator</a></li>
+            <li><a href="info.html">About Ecological Footprints</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
         <h1>Ecological Footprint Calculator</h1>
         <form id="footprintForm">
@@ -223,33 +172,32 @@
 
             // Show the result
             const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = `Your ecological footprint is approximately ${totalFootprint} kg CO₂ per year.`;
+            const feedback = assessFootprint(totalFootprint); // Get the feedback
+            resultDiv.innerHTML = `Your ecological footprint is approximately ${totalFootprint} kg CO₂ per year.<br><br>${feedback}`;
             resultDiv.style.display = "block"; // Show result when calculation is done
         }
-          // Function to assess the ecological footprint and provide feedback
-    function assessFootprint(totalFootprint) {
-        let assessment, feedback;
 
-        if (totalFootprint > 5000) {
-            assessment = "High";
-            feedback = "Your ecological footprint is high, indicating a significant impact on the environment. Here are some suggestions to reduce it:<br>" +
-                "- Consider reducing car travel or switching to a more sustainable mode of transportation.<br>" +
-                "- Try to buy second-hand or thrift more often to lower clothing consumption.<br>" +
-                "- Reduce the number of plugged-in appliances or switch to renewable energy if possible.<br>" +
-                "- Shorten shower times and try using cold water occasionally to reduce water usage.";
-        } else if (totalFootprint >= 2500 && totalFootprint <= 5000) {
-            assessment = "Average";
-            feedback = "Your ecological footprint is average, meaning you're doing some things well but could still improve. Consider making a few adjustments to lower your impact.";
-        } else {
-            assessment = "Low";
-            feedback = "Great job! Your ecological footprint is low. Keep up the sustainable practices!";
+        // Function to assess the ecological footprint and provide feedback
+        function assessFootprint(totalFootprint) {
+            let assessment, feedback;
+
+            if (totalFootprint > 5000) {
+                assessment = "High";
+                feedback = "Your ecological footprint is high, indicating a significant impact on the environment. Here are some suggestions to reduce it:<br>" +
+                    "- Consider reducing car travel or switching to a more sustainable mode of transportation.<br>" +
+                    "- Try to buy second-hand or thrift more often to lower clothing consumption.<br>" +
+                    "- Reduce the number of plugged-in appliances or switch to renewable energy if possible.<br>" +
+                    "- Shorten shower times and try using cold water occasionally to reduce water usage.";
+            } else if (totalFootprint >= 2500 && totalFootprint <= 5000) {
+                assessment = "Average";
+                feedback = "Your ecological footprint is average, meaning you're doing some things well but could still improve. Consider making a few adjustments to lower your impact.";
+            } else {
+                assessment = "Low";
+                feedback = "Great job! Your ecological footprint is low. Keep up the sustainable practices!";
+            }
+
+            return `${assessment} footprint.<br><br>${feedback}`;
         }
-
-        return `${assessment} footprint.<br><br>${feedback}`;
-    }
-
     </script>
-<!-- Link to external script.js file -->
-    <script src="script.js"></script>
 </body>
 </html>
